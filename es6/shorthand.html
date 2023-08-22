@@ -12,14 +12,20 @@
 <script type="text/babel">
 // #1 語法糖與新增語法
 // 語法糖：不會影響運作，邏輯與當前 JS 一致
-const obj = {
-  myName: '物件',
-  fn: function() {
-    return this.myName;
-  }
-}
 
-console.log(obj.fn());
+// const obj = {
+//   myName: '物件',
+//   fn: function() {
+//     return this.myName;
+//   }
+
+//   // 但是箭頭函式不是語法糖
+//   // fn:() =>{
+//   //   return this.myName;
+//   // }
+// }
+
+// console.log(obj.fn());
 
 // 新增語法：會影響運作
 // var myName = '全域';
@@ -38,7 +44,7 @@ console.log(obj.fn());
 // #2-1 物件內的函式
 // const obj3 = {
 //   myName: '物件',
-//   fn: function() { // 請改為縮寫
+//   fn() { // 請改為縮寫
 //     return this.myName;
 //   }
 // }
@@ -46,46 +52,66 @@ console.log(obj.fn());
 // console.log(obj3.fn());
 
 // #2-2 物件內的變數
+// const name= '小明'
+// function fn(){
+//   return this.name;
+// }
 // const person = {
-//   name: '小明'
+//   name,
+//   fn
 // };
 
+// console.log(person.fn())
 
 
 
 
 // #3 展開
 // #3-1 不同陣列合併
-const groupA = ['小明', '杰倫', '阿姨'];
-const groupB = ['老媽', '老爸'];
-
+// const groupA = ['小明', '杰倫', '阿姨'];
+// const groupB = ['老媽', '老爸'];
+// const groupC = [...groupA, ...groupB];
+// console.log(groupC)
 
 // #3-2 物件擴展
-const methods = {
-  fn1() {
-    console.log(1);
-  },
-  fn2() {
-    console.log(1);
-  },
-}
+// const methods = {
+//   fn1() {
+//     console.log(1);
+//   },
+//   fn2() {
+//     console.log(1);
+//   },
+// }
 
+// const newMethods={
+//   ...methods,
+//   fn3() {
+//     console.log(3)
+//   }
+// }
+// console.log(methods)
+// console.log(newMethods)
+// newMethods.fn3()
 
 // #3-3 轉成純陣列
 // 補充說明：NodeList 或 HTMLCollection 或 Arguments 是「類陣列」的物件，可以運用本章節的展開技巧轉換為純陣列。
 // Argument: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/arguments
 // HTMLCollection: https://developer.mozilla.org/zh-TW/docs/Web/API/HTMLCollection
 // NodeList: https://developer.mozilla.org/zh-TW/docs/Web/API/NodeList
-const doms = document.querySelectorAll('li');
-console.log(doms); // 請轉為純陣列
+// const doms = document.querySelectorAll('li');
+// console.log(doms); // 請轉為純陣列
 
-
+// const newDoms =[...doms]
+// console.log(newDoms);
+// newDoms.map(e =>{
+//   console.log(e)
+// })
 
 // #4 預設值
-// function sum(a, b) { // 請加入預設值避免錯誤
-//   return a + b;
-// }
-// console.log(sum(1));
+function sum(a, b=1) { // 請加入預設值避免錯誤
+  return a + b;
+}
+console.log(sum(1));
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
