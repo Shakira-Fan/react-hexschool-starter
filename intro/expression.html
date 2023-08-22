@@ -9,9 +9,19 @@
 <!-- 表達語句：
   https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators
 -->
-<script>
+<!-- <script>
 // 表達式與陳述式的差異
-</script>
+// 陳述式 多個單字、幾行句子
+// 表達式 1~5個左右的單字
+var a =1; //陳述語句
+a = 2; //   表達語句
+
+//為何要暸解表達式
+const condition =false;
+const text = condition ? "happy" : "unhappy";
+console.log(text)
+
+</script> -->
 
 
 <script type="text/babel">
@@ -28,6 +38,12 @@ function App() {
       <h5 className="card-title">{ data.name }</h5>
       <p className="card-text">{ data.description }</p>
       <a href={data.link} target="_blank" className="btn btn-primary">Go somewhere</a>
+      <br/>
+      {1},
+      {0 || 1}
+      {data.name ? data.name : '杰倫'},
+      {/* if (data.name){} 是不可以放陳述式的*/}
+      {(function(){return 3*3})()}
     </div>
   </div>
 }
