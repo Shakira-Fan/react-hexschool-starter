@@ -9,6 +9,18 @@ function App() {
   return <h1>React 我來了 <small className="text-danger">{new Date().toLocaleDateString() }</small></h1>
 }
 
+// 純js寫出來的react
+// function App(){
+//   // 標籤,HTML,屬性,內容
+//   return React.createElement('h1',null,'React 我來了',
+//   React.createElement('small',{
+//     className: 'text-danger',
+//     title:'時間',
+//   },new Date().toLocaleDateString(),
+//   '結尾'
+//   ))
+// }
+
 const el = document.getElementById('root');
 const root = ReactDOM.createRoot(el);
 root.render(<App/>)
