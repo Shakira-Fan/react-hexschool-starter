@@ -58,6 +58,31 @@
             };
 
             const App = () => {
+              const products = [
+                {
+                  id: 1,
+                  title: "基本款",
+                  price: 1000,
+                  content: "基本每週配給，包含高麗菜、空心菜，健康不馬乎",
+                  callToAction: "免費試用",
+                },
+                {
+                  id: 2,
+                  title: "進階版2",
+                  price: 6000,
+                  content:
+                    "奶蛋魚肉經營養師精確估計，適合三人小家庭使用，每週一、四配送",
+                  callToAction: "永保健康2",
+                },
+                {
+                  id: 3,
+                  title: "企業版2",
+                  price: "請洽客服",
+                  content: "多少人數均可訂製，5 ~ 1000 人團體均適用",
+                  callToAction: "大吃大喝方案2",
+                },
+              ];
+
               return (
                 <>
                   <h2>月月送菜到你家</h2>
@@ -68,7 +93,18 @@
                     nam a doloremque error adipisci nulla reiciendis itaque odio
                     voluptatibus.
                   </p>
-                  <Card
+                  {products.map((product) => {
+                    return (
+                      <Card
+                        key={product.id}
+                        title={product.title}
+                        price={product.price}
+                        content={product.content}
+                        callToAction={product.callToAction}
+                      />
+                    );
+                  })}
+                  {/*<Card
                     title="基本版2"
                     price={1000}
                     content="基本每週配給，包含高麗菜、空心菜，健康不馬乎"
@@ -88,6 +124,7 @@
                     content="多少人數均可訂製，5 ~ 1000 人團體均適用"
                     callToAction="大吃大喝方案2"
                   />
+                  */}
                 </>
               );
             };
