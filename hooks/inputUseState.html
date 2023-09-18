@@ -11,7 +11,13 @@ const App = () => {
   const [text,setText] = useState('這是一段文字')
   
   return (<div>
-    <input type="text" value={text}/>
+    {text}
+    <input type="text" value={text} onChange={
+      (event) =>{
+        console.log(event.target.value)
+        setText(event.target.value)
+      }
+    }/>
   </div>)
 }
 
