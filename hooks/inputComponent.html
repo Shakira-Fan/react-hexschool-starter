@@ -6,10 +6,30 @@
 <!--  -->
 <div id="root"></div>
 <script type="text/babel">
+const { useState} = React;
+
+const SearchBox =({text,onSerchHandler,id})=>{
+  return(<>
+    <label htmlFor={id}>搜尋</label>
+    <input type="text" value={text} onChange={onSerchHandler} id={id}/>
+  </>)
+}
 
 const App = () => {
+  const [text,setText] = useState('這是一段文字');
+
+  const onSerchHandler = (e) => {
+    console.log(event.target.value)
+    setText(event.target.value)
+  }
+  
   return (<div>
+    {/* <input type="text" value={text} /> 在一般變數下，input無法綁定值*/}
+    <label htmlFor="search">搜尋</label>
+    <input type="text" value={text} onChange={onSerchHandler}/>
+    <hr/>
     
+    <SearchBox text={text} onSerchHandler={onSerchHandler} id="search2"/>
   </div>)
 }
 
